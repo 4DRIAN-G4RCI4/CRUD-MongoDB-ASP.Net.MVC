@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+@model List<Producto>
+
+<!-- Contenedor principal -->
+<div class="container mt-5">
+
+   
+    <!-- Encabezado -->
+    <div class="text-center mb-4">
+        <h1 class="display-4 text-primary font-weight-bold">Gestión de Productos</h1>
+        <p class="text-muted">Administra tus productos de manera eficiente con nuestras herramientas avanzadas.</p>
+
+        <!-- Botón para ir al Login -->
+        <div class="text-right mb-4">
+            <a href="https://localhost:7014/" class="btn btn-dark btn-lg  style= position: absolute; top: 20px; right: 20px; ">Iniciar sesión en otra cuenta</a>
+        </div>
+    </div>
+
+    <!-- Botón para crear un nuevo producto -->
+    <div class="text-right mb-4">
+        <a asp-action="Create" class="btn btn-success btn-lg shadow px-5 py-2 rounded-pill">➕ Añadir Producto</a>
+    </div>
+
+    <!-- Sección de Productos -->
+    <div class="row">
+        @foreach (var producto in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0 rounded">
+                    <img src="https://th.bing.com/th/id/OIP.tU11PcwCxbLXCpG0BSECpgHaFP?w=245&h=180&c=7&r=0&o=5&pid=1.7" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Imagen del producto">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary font-weight-bold">@producto.Nombre</h5>
+                        <p class="card-text text-muted"><strong>Descripción:</strong> @producto.Descripcion</p>
+                        <p class="card-text"><strong>Ingredientes:</strong> @producto.Ingredientes</p>
+                        <p class="card-text text-muted"><strong>Tipo:</strong> @producto.TipoPlatillo</p>
+                        <p class="card-text text-muted">Precio: <strong>@string.Format("{0:C}", producto.Precio)</strong></p>
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Edit" asp-route-id="@producto.Id" class="btn btn-warning btn-sm mx-1 rounded-pill px-3 shadow">✏ Editar</a>
+                            <a asp-action="Delete" asp-route-id="@producto.Id" class="btn btn-danger btn-sm mx-1 rounded-pill px-3 shadow">🗑 Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Sección de Consultas -->
+    <h2 class="text-primary text-center font-weight-bold mt-5">📊 Consultas y Agregaciones</h2>
+    <div class="table-responsive shadow-lg rounded-lg bg-white p-3 mt-3">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">🔍 Nombre de la Consulta</th>
+                    <th scope="col">📖 Descripción</th>
+                    <th scope="col">🚀 Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Productos más caros</td>
+                    <td>Muestra los productos con el precio más alto.</td>
+                    <td><a asp-action="ProductosMasCaros" asp-controller="Consultas" class="btn btn-info btn-sm rounded-pill shadow">Ver Consulta</a></td>
+                </tr>
+                <tr>
+                    <td>Productos más baratos</td>
+                    <td>Muestra los productos con el precio más bajo.</td>
+                    <td><a asp-action="ProductosMasBaratos" asp-controller="Consultas" class="btn btn-info btn-sm rounded-pill shadow">Ver Consulta</a></td>
+                </tr>
+                <tr>
+                    <td>Promedio de precios</td>
+                    <td>Calcula el precio promedio de todos los productos.</td>
+                    <td><a asp-action="PromedioPrecios" asp-controller="Consultas" class="btn btn-info btn-sm rounded-pill shadow">Ver Consulta</a></td>
+                </tr>
+                <tr>
+                    <td>Productos por tipo (Entrada)</td>
+                    <td>Muestra todos los productos que son entradas.</td>
+                    <td><a asp-action="ProductosPorTipo" asp-controller="Consultas" asp-route-tipo="Entrada" class="btn btn-info btn-sm rounded-pill shadow">Ver Consulta</a></td>
+                </tr>
+                <tr>
+                    <td>Cantidad de productos por tipo</td>
+                    <td>Muestra cuántos productos hay de cada tipo de platillo.</td>
+                    <td><a asp-action="CantidadProductosPorTipo" asp-controller="Consultas" class="btn btn-info btn-sm rounded-pill shadow">Ver Consulta</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos personalizados -->
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    h1, h2 {
+        font-weight: 700;
+        color: #0056b3;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-info {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .card {
+        border-radius: 15px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+</style>
+
+
+    <!-- Resto del contenido -->
+    <div class="text-center mb-4">
+        <h1 class="display-4 text-primary font-weight-bold">Gestión de Productos</h1>
+        <p class="text-muted">Administra tu inventario de manera eficiente con nuestras herramientas avanzadas.</p>
+    </div>
+

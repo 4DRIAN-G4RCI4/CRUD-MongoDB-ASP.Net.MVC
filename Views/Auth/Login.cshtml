@@ -1,0 +1,94 @@
+﻿@model CRUD_NoSQL.Models.Usuario
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Contenedor principal -->
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="row justify-content-center w-100">
+        <!-- Caja de Login -->
+        <div class="col-md-6 col-lg-4 p-5 shadow-lg rounded-4 bg-white">
+
+            <!-- Título de la página -->
+            <div class="text-center mb-4">
+                <h2 class="display-4 text-dark font-weight-bold">Iniciar sesión</h2>
+            </div>
+
+            <!-- Formulario de Login -->
+            <form method="post">
+                <div class="form-group mb-4">
+                    <label for="Correo" class="font-weight-semibold text-muted">Correo</label>
+                    <input type="email" class="form-control form-control-lg border-0 shadow-sm rounded-3" id="Correo" name="Correo" required />
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Contraseña" class="font-weight-semibold text-muted">Contraseña</label>
+                    <input type="password" class="form-control form-control-lg border-0 shadow-sm rounded-3" id="Contraseña" name="Contraseña" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block rounded-3 shadow-md w-100 py-2 mt-3">Iniciar sesión</button>
+            </form>
+
+            <!-- Enlace para registro -->
+            <div class="text-center mt-3">
+                <p class="text-muted">¿No tienes cuenta?</p>
+                <a href="@Url.Action("Register", "Auth")" class="btn btn-outline-secondary btn-lg rounded-3">Registrarse</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Agregar CSS personalizado -->
+<style>
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #f7f7f7;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .btn-primary {
+        background-color: #0071e3;
+        border-color: #0071e3;
+    }
+
+    .btn-outline-secondary {
+        color: #333;
+        border-color: #ddd;
+        font-weight: 500;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+    .form-control {
+        border-radius: 30px;
+        background-color: #f2f2f2;
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #0071e3;
+        }
+
+    .shadow-md {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+</style>

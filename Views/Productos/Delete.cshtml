@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+@model Producto
+
+<!-- Contenedor principal -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 p-4 shadow-lg rounded bg-white">
+
+            <!-- Alerta de eliminación -->
+            <div class="alert alert-danger text-center" role="alert">
+                <h4 class="font-weight-bold">⚠ ¡Atención!</h4>
+                <p class="mb-0">¿Estás seguro de que deseas eliminar este producto?</p>
+            </div>
+
+            <!-- Información del producto -->
+            <div class="text-center mb-3">
+                <h5 class="text-primary font-weight-bold">@Model.Nombre</h5>
+                <p class="text-muted">Precio: <strong>@Model.Precio.ToString("C")</strong></p>
+            </div>
+
+            <!-- Formulario de eliminación -->
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Botón de eliminar -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-danger btn-lg w-100 shadow">Eliminar Producto</button>
+                </div>
+            </form>
+
+            <!-- Botón para regresar -->
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-outline-primary w-100">Volver al listado</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Estilos personalizados -->
+<style>
+    body {
+        background-color: #f0f8ff; /* Azul claro suave */
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .container {
+        max-width: 500px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #dc3545; /* Rojo para resaltar la eliminación */
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        font-size: 1.2rem;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+        font-size: 1rem;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+        transition: 0.3s ease-in-out;
+    }
+</style>

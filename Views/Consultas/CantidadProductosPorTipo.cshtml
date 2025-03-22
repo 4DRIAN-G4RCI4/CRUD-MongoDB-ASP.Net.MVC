@@ -1,0 +1,67 @@
+﻿@using MongoDB.Bson
+@model List<BsonDocument>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 p-4 shadow-lg rounded bg-glass">
+
+            <!-- Título con diseño elegante -->
+            <h2 class="text-center text-black font-weight-bold mb-4">
+                <i class="fas fa-utensils"></i> Cantidad de Productos por Tipo
+            </h2>
+
+            <!-- Tabla estilizada -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered text-center table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-utensils"></i> Tipo de Platillo</th>
+                            <th><i class="fas fa-box"></i> Cantidad de Productos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="font-weight-bold text-light">@item["_id"]</td>
+                                <td class="font-weight-bold text-warning">@item["cantidad"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón para volver -->
+            <div class="text-center mt-4">
+                <a href="https://localhost:7014/Productos/Index" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-arrow-left"></i> Volver a la lista
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Estilos adicionales -->
+<style>
+    /* Fondo con imagen de restaurante colonial */
+    body {
+        background: url('https://stylelovely.com/wp-content/uploads/los_mejores_restaurantes_chinos.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Playfair Display', serif;
+        color: white;
+    }
+
+    /* Contenedor con efecto cristal (glassmorphism) */
+    .bg-glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Color dorado para títulos */
+    .text-gold {
+        color: #FFD700;
+        text-shadow: 2px
