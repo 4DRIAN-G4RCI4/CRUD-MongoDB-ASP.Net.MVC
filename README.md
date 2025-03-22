@@ -43,10 +43,4 @@ Para ejecutar y probar este proyecto, siga estos pasos:
 
 Este proyecto se distribuye bajo una **Licencia Educativa** que permite el uso exclusivamente con fines educativos. No está permitido vender el proyecto ni compartirlo con fines comerciales. La licencia no permite la redistribución o el uso del proyecto en aplicaciones comerciales o de producción.
 
-## Agradecimientos Especiales
 
-Quiero expresar mi profundo agradecimiento a los miembros del canal InfoToolsSV que han sido una parte fundamental de este proyecto. Su apoyo constante y entusiasta ha sido una fuente de inspiración y motivación para crear no solo este proyecto, sino también mis videos y contenido educativo. 
-
-Agradezco su tiempo, sus valiosas sugerencias y comentarios, y su continua participación en este viaje de aprendizaje y crecimiento. Sin su apoyo, este proyecto no sería posible.
-
-Gracias por ser una comunidad tan comprometida y apasionada. Espero que este proyecto y mi contenido continúen siendo de utilidad para todos ustedes. ¡Sigamos construyendo juntos!
